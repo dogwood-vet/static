@@ -1,28 +1,13 @@
 <html>
 <head>
 <script type="text/javascript">
-
-// Block IP address script- By JavaScriptKit.com (http://www.javascriptkit.com)
-// For this and over 400+ free scripts, visit JavaScript Kit- http://www.javascriptkit.com/
-// This notice must stay intact for use.
-
-//Enter list of banned ips, each separated with a comma:
-var allowips=["24.126.201.14", "173.14.208.233","24.98.34.220"]
-
-var ip = '<!--#echo var="REMOTE_ADDR"-->'
-
-var handleips=allowips.join("|")
-handleips=new RegExp(handleips, "i")
-
-console.log(ip)
-console.log(handleips)
-console.log(ip.search(handleips))
-	
-if (!(ip.search(handleips)!=-1)){ 
- console.log("Redirecting...")
- //window.location.replace("http://www.dogwood.vet")
-}
+$.getJSON("http://api.ipify.org/?format=json", function(e) {
+    
+ var allowips=["24.126.201.14", "173.14.208.233","24.98.34.220"]
+ alert(e.ip);
+});
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <title>Dogwood Controlled Drug Report System</title>
 <style>
 body {
