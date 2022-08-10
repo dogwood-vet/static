@@ -1,12 +1,16 @@
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-$.getJSON("http://api.ipify.org/?format=json", function(e) {
+//$.getJSON("http://api.ipify.org/?format=json", function(e) {
     
  var allowips=["24.126.201.14", "173.14.208.233","24.98.34.220"]
- alert(e.ip);
-});
+// alert(e.ip);
+//});
+	
+$.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
+  console.log(JSON.stringify(data, null, 2));
+});	
 </script>
 <title>Dogwood Controlled Drug Report System</title>
 <style>
