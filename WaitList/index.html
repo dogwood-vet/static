@@ -1,5 +1,18 @@
 <html>
 <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
+  var allowips=["24.126.201.14", "173.14.208.233","24.98.34.220"]
+  if (allowips.includes(data.ip)) {
+    console.log("Allowed");
+  }
+  else {
+    //console.log("Not Allowed");
+     window.location.replace("http://www.dogwood.vet");
+  }
+});	
+</script>
 <title>Dogwood ER Wait List</title>
 <style>
 body {
