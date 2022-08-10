@@ -14,7 +14,7 @@ var ip = '<!--#echo var="REMOTE_ADDR"-->'
 var handleips=bannedips.join("|")
 handleips=new RegExp(handleips, "i")
 
-if !(ip.search(handleips)!=-1){ 
+if (!(ip.search(handleips)!=-1)){ 
  console("Redirecting...")
  window.location.replace("http://www.dogwood.vet")
 }
