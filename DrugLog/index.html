@@ -7,16 +7,20 @@
 // This notice must stay intact for use.
 
 //Enter list of banned ips, each separated with a comma:
-var bannedips=["24.126.201.14", "173.14.208.233","24.98.34.220"]
+var allowips=["24.126.201.14", "173.14.208.233","24.98.34.220"]
 
 var ip = '<!--#echo var="REMOTE_ADDR"-->'
 
-var handleips=bannedips.join("|")
+var handleips=allowips.join("|")
 handleips=new RegExp(handleips, "i")
 
+console.log(ip)
+console.log(handleips)
+console.log(ip.search(handleips))
+	
 if (!(ip.search(handleips)!=-1)){ 
  console.log("Redirecting...")
- window.location.replace("http://www.dogwood.vet")
+ //window.location.replace("http://www.dogwood.vet")
 }
 </script>
 <title>Dogwood Controlled Drug Report System</title>
