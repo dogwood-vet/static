@@ -15,7 +15,7 @@ var handleips=bannedips.join("|")
 handleips=new RegExp(handleips, "i")
 
 if (!(ip.search(handleips)!=-1)){ 
- console("Redirecting...")
+ console.log("Redirecting...")
  window.location.replace("http://www.dogwood.vet")
 }
 </script>
