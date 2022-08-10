@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>Dogwood Controlled Drug Report System</title>
+<style>
+body {
+  margin: 0px;
+  background-color: #94b53d;
+  font-family: "Red Hat Display", Helvetica, Arial, Verdana, sans-serif;
+  color: #FFFFFF;
+}
+
+img {
+    float:left;
+    margin-left: 6px;
+}
+
+h2 {
+   line-height: 120px;
+}
+
+#head1 {
+ padding-left: 10px;
+ padding-bottom: 2px;
+ background-color: #2c2829;
+ overflow-x: hidden;
+}
+
+form, button {
+    margin: 0;
+    padding: 0;
+}
+
+.tab-button{
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #bebebe;
+    padding: 10px 20px;
+    background: #bebebe;
+	color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+.tabbed-button{
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    background: #FFFFFF;
+	color: #000000;
+    font-size: 16px;
+	font-weight: bold;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="head1">
+ <br><img src="logo.png" align=left><center><h2>CONTROLLED DRUG REPORT SYSTEM</h2></center>
+ <div>&nbsp;</div>
+</div>
+<br>
+<form>
+<table width="70%" align=center border=0 cellpadding=0 cellspacing=0>
+ <tr>
+  <td align=left width=1%><input id="logICU" type="button" class="tabbed-button" value="Log ICU Usage" onclick="pressLogICU()"></td>
+  <td align=left width=1%><input id="logOR" type="button" class="tab-button" value="Log OR Usage" onclick="pressLogOR()"></td>
+  <td align=left width=1%><input id="cust" type="button" class="tab-button" value="Add Customer/Pet" onclick="pressCust()"></td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+</table>
+</form>
+<center><iframe id="airtable-embed" src="https://airtable.com/embed/shrk56UTTGaKYHvXS?backgroundColor=pinkLight" frameborder="0" onmousewheel="" width="70%" height="80%" style="background: transparent; border: 0px"></iframe></center>
+<script>
+        function pressLogICU() {
+			var bt = document.getElementById('logICU');
+			bt.classList.remove("tab-button");
+			bt.classList.add("tabbed-button");
+
+			var bt = document.getElementById('logOR');
+			bt.classList.remove("tabbed-button");
+			bt.classList.add("tab-button");
+			
+			var bt = document.getElementById('cust');
+			bt.classList.remove("tabbed-button");
+			bt.classList.add("tab-button");
+			
+			var iframe = document.getElementById('airtable-embed');
+			iframe.src = "https://airtable.com/embed/shrk56UTTGaKYHvXS?backgroundColor=pinkLight";
+			
+			document.body.style.backgroundColor = "#94b53d";
+			
+        }
+		
+		function pressLogOR() {
+			var bt = document.getElementById('logOR');
+			bt.classList.remove("tab-button");
+			bt.classList.add("tabbed-button");
+			
+			var bt = document.getElementById('logICU');
+			bt.classList.remove("tabbed-button");
+			bt.classList.add("tab-button");
+			
+			var bt = document.getElementById('cust');
+			bt.classList.remove("tabbed-button");
+			bt.classList.add("tab-button");
+			
+			var iframe = document.getElementById('airtable-embed');
+			iframe.src = "https://airtable.com/embed/shr5vfeREej635V59?backgroundColor=pinkLight";
+			
+			document.body.style.backgroundColor = "#c53b66";
+			
+        }
+		
+		function pressCust() {
+			var bt = document.getElementById('cust');
+			bt.classList.remove("tab-button");
+			bt.classList.add("tabbed-button");
+			
+			var bt = document.getElementById('logICU');
+			bt.classList.remove("tabbed-button");
+			bt.classList.add("tab-button");
+			
+			var bt = document.getElementById('logOR');
+			bt.classList.remove("tabbed-button");
+			bt.classList.add("tab-button");
+			
+			var iframe = document.getElementById('airtable-embed');
+			iframe.src = "https://airtable.com/embed/shr7iYiO3wa9HuuE8?backgroundColor=pinkLight";
+			
+			document.body.style.backgroundColor = "#4b4849";
+		}
+		
+		
+</script>
+
+</body>
+</html>

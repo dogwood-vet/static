@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Dogwood ER Wait List</title>
+<style>
+body {
+  margin: 0px;
+  background-color: #94b53d;
+  font-family: "Red Hat Display", Helvetica, Arial, Verdana, sans-serif;
+  color: #FFFFFF;
+}
+
+img {
+    float:left;
+    margin-left: 6px;
+}
+
+h2 {
+   line-height: 120px;
+}
+
+#head1 {
+ padding-left: 10px;
+ padding-bottom: 2px;
+ background-color: #2c2829;
+ overflow-x: hidden;
+}
+
+#lastUpdateText {
+ display: inline-block;
+ font-size: 9px;
+ font-style: italic;
+ font-weight: lighter;
+ text-align: right;
+ float: right;
+}
+
+#lastUpdate {
+ display: inline-block;
+ text-align: right;
+}
+
+
+#cover {
+ position: absolute;
+ width: 100%;
+ bottom: 0;
+ right: 0;
+ left: 0;
+ height: 30px;
+ background: #94b53d;
+ overflow-x: hidden;
+}
+</style>
+</head>
+<body>
+<div id="head1">
+ <br><img src="logo.png" align=left><center><h2>EMERGENCY WAIT LIST</h2></center>
+ <div id="lastUpdateText"> Last Updated on <div id="lastUpdate"></div></div>
+</div>
+<br>
+<center><iframe id="airtable-embed" src="https://airtable.com/embed/shrdoQHzKWV0bem1c?backgroundColor=pinkLight" frameborder="0" onmousewheel="" width="99%" height="1120" style="background: transparent; border: 0px;"></iframe></center>
+<script>
+		var reloadTime = 30000;
+		
+        window.setInterval(function() {
+            reloadIFrame()
+        }, reloadTime);
+
+        function reloadIFrame() {
+            console.log('reloading..');
+			var iframe = document.getElementById('airtable-embed');
+			iframe.src = "https://airtable.com/embed/shrdoQHzKWV0bem1c?backgroundColor=pinkLight";
+			updateDate();
+        }
+		
+		function updateDate() {
+			var lastMod = document.getElementById('lastUpdate');
+			lastMod.innerHTML=new Date(Date.now()).toLocaleString();		
+		}
+		
+		updateDate();
+</script>
+<div id="cover">
+</div>
+</body>
+</html>
