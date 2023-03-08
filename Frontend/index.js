@@ -289,10 +289,10 @@ async function main(index, max) {
     resetCanvas()
 
 
-    main(index + 6, max);
+    main(index + max + 1, max);
 
 
 }
 
-main(0, 20);
+main(0, 10);
 
