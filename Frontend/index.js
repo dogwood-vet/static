@@ -255,9 +255,9 @@ async function main(index) {
     let left = false;
     let chop = false;
 
-    await delay(3000);
+    await delay(60000);
     await pageScroll()
-    await delay(3000);
+    await delay(60000);
 
 
 
@@ -281,15 +281,15 @@ async function main(index) {
 
 
     }
-    // breakBlock();
-    // await delay(3500);
-    // scrollToTop()
-    // await delay(1000);
-    // deletePrev();
-    // resetCanvas()
+    breakBlock();
+    await delay(3500);
+    scrollToTop()
+    await delay(1000);
+    deletePrev();
+    resetCanvas()
 
 
-    // main(index + 6);
+    main(index + 6);
 
 
 }
