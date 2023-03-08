@@ -239,6 +239,7 @@ function resetCanvas() {
 function deletePrev() {
     var reviews = document.querySelectorAll(".review");
     for (var i = 0; i < reviews.length; i++) {
+        
         reviews[i].remove();
     }
 }
@@ -249,6 +250,10 @@ async function main(index, max) {
     let data = await loadData();
     let parent = document.getElementsByClassName("container")[0];
     for (var i = index; i <= index + max; i++) {
+        let ratingWidth = getRatingWidth(data[i].rating)
+
+        if (ratingWidth !== "70px") continue;
+        if (data[i].review === "") continue;
         createReview(data[i], parent);
     }
     let right = false;
@@ -294,5 +299,5 @@ async function main(index, max) {
 
 }
 
-main(0, 10);
+main(0, 15);
 
