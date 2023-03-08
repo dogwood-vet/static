@@ -245,19 +245,19 @@ function deletePrev() {
 
 
 
-async function main(index) {
+async function main(index, max) {
     let data = await loadData();
     let parent = document.getElementsByClassName("container")[0];
-    for (var i = index; i <= index + 5; i++) {
+    for (var i = index; i <= index + max; i++) {
         createReview(data[i], parent);
     }
     let right = false;
     let left = false;
     let chop = false;
 
-    await delay(60000);
+    await delay(40000);
     await pageScroll()
-    await delay(60000);
+    await delay(40000);
 
 
 
@@ -289,10 +289,10 @@ async function main(index) {
     resetCanvas()
 
 
-    main(index + 6);
+    main(index + 6, max);
 
 
 }
 
-main(0);
+main(0, 20);
 
