@@ -1,6 +1,6 @@
 async function loadData() {
     try {
-        var response = await fetch('../Data/reviews.json', { "Access-Control-Allow-Origin": "*" });
+        var response = await fetch('./reviews.json', { "Access-Control-Allow-Origin": "*" });
         var content = await response.json();
     } catch {
         console.log("Not able to read file");
