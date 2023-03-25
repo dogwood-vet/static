@@ -35,10 +35,7 @@ function getRatingWidth(rating) {
 }
 
 function createReview(userdata, parent) {
-    let ratingWidth = getRatingWidth(userdata.rating)
-
-    if (ratingWidth !== "70px") return;
-    if (userdata.review === "") return;
+    let ratingWidth = "70px"
 
     let review = document.createElement("div");
     review.classList.add("review");
@@ -124,6 +121,7 @@ function breakBlock() {
 function initAnimation() {
     let reviews = document.querySelectorAll(".review");
     let target = reviews[reviews.length - 1];
+    console.log(target)
     let rect = target.getBoundingClientRect();
     let yPos = target.offsetTop + ((rect.height - 70) / 2);
     const canvas = document.getElementById("canvas");
@@ -250,7 +248,7 @@ function filter(data) {
 
     for(var i = 0; i < data.length; i++) {
         var ratingWidth = getRatingWidth(data[i].rating);
-        if(ratingWidth == "70px") {
+        if(ratingWidth == "70px" && data[i].review != "") {
             newData.push(data[i]);
         }
     }
@@ -263,7 +261,7 @@ async function main(index, max) {
 
     let data = await loadData();
     data = filter(data);
-    // console.log(data)
+    console.log(data)
     let parent = document.getElementsByClassName("container")[0];
     let restart = false;
 
@@ -271,8 +269,8 @@ async function main(index, max) {
         max = Math.abs(index - data.length) - 1;
         restart = true;
     }
-    // console.log("max: " + max)
-    // console.log("From: " + index, "To: " + (index + max))
+    console.log("max: " + max)
+    console.log("From: " + index, "To: " + (index + max))
 
 
     for (var i = index; i <= index + max; i++) {
@@ -285,11 +283,11 @@ async function main(index, max) {
     let left = false;
     let chop = false;
 
-    await delay(40000);
+    // await delay(40000);
     console.log("Starting scroll")
     await pageScroll()
     console.log("Finsish scrool")
-    await delay(40000);
+    // await delay(40000);
 
 
     console.log("start animation")
