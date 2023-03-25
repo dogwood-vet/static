@@ -92,11 +92,9 @@ async function pageScroll() {
     // window.scrollBy(0, 1);
     // scrolldelay = setTimeout(pageScroll, 10);
     const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-    console.log(window.scrollY, scrollableHeight)
 
     while (scrollableHeight > window.scrollY) {
         window.scrollBy(0, 1);
-        console.log("here")
         await delay(100);
     }
 }
@@ -247,16 +245,35 @@ function deletePrev() {
     }
 }
 
+function filter(data) {
+    let newData = [];
+
+    for(var i = 0; i < data.length; i++) {
+        var ratingWidth = getRatingWidth(data[i].rating);
+        if(ratingWidth == "70px") {
+            newData.push(data[i]);
+        }
+    }
+
+    return newData;
+}
 
 
 async function main(index, max) {
 
     let data = await loadData();
+    data = filter(data);
+    // console.log(data)
     let parent = document.getElementsByClassName("container")[0];
+    let restart = false;
 
-    if(index > data.length) {
-        index = 0;
+    if(index + max >= data.length) {
+        max = Math.abs(index - data.length) - 1;
+        restart = true;
     }
+    // console.log("max: " + max)
+    // console.log("From: " + index, "To: " + (index + max))
+
 
     for (var i = index; i <= index + max; i++) {
         createReview(data[i], parent);
@@ -303,8 +320,13 @@ async function main(index, max) {
     deletePrev();
     resetCanvas()
 
+    let next = index + max + 1;
+    if(restart) {
+        max = 15;
+        next = 0;
+    } 
 
-    main(index + max + 1, max);
+    main(next, max);
 
 
 }
