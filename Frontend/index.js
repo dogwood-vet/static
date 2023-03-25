@@ -1,6 +1,6 @@
 async function loadData() {
     try {
-        var response = await fetch('./reviews.json', { "Access-Control-Allow-Origin": "*" });
+        var response = await fetch('../Data/reviews.json', { "Access-Control-Allow-Origin": "*" });
         var content = await response.json();
     } catch {
         console.log("Not able to read file");
@@ -91,9 +91,12 @@ async function pageScroll() {
     // }
     // window.scrollBy(0, 1);
     // scrolldelay = setTimeout(pageScroll, 10);
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    console.log(window.scrollY, scrollableHeight)
 
-    while (!(document.documentElement.scrollTopMax < window.pageYOffset + 1)) {
+    while (scrollableHeight > window.scrollY) {
         window.scrollBy(0, 1);
+        console.log("here")
         await delay(100);
     }
 }
@@ -305,7 +308,6 @@ async function main(index, max) {
 
 
 }
-
 
 main(0, 15);
 
